@@ -1,16 +1,13 @@
 Tetrisplosion
 =============
 
-Tetrisplosion
-=============
-
 Installation on Windows
 ------------
 
 1) Install CMake (at-least version 2.8)
 
 2) Download SFML, and place in the following directory:
-  c:\sfml-2.1\
+  c:\sfml-2.1-source\
   
 3) Run CMake, and set the following:
 
