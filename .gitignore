@@ -11,7 +11,3 @@
 *.lai
 *.la
 *.a
-
-# Everything in the following folders
-bin/*
-build/*
