@@ -3,6 +3,7 @@ set (SRCROOT ${PROJECT_SOURCE_DIR}/lib)
 # list of source files
 set(SRC
   ${SRCROOT}/tetrisplosion.cxx
+  ${SRCROOT}/window_config.cxx
   ${SRCROOT}/test_lib.cxx
   )
 source_group("" FILES ${SRC})
