@@ -21,10 +21,11 @@ endif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 include_directories(${SFML_INCLUDE_DIR})
 include_directories(./include)
 
+# Direct that an execuable tetrisplosion should be built using main.cxx)
+add_executable(tetrisplosion src/main.cxx)
+
 # List of subdirectories to run cmake on
 add_subdirectory(lib)
 add_subdirectory(extlibs)  # managing all external libraries.
 
-# Direct that an execuable tetrisplosion should be built using main.cxx)
-add_executable(tetrisplosion src/main.cxx)
 target_link_libraries(tetrisplosion tetrisplosion_lib)
