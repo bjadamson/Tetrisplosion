@@ -11,9 +11,9 @@ class Handle {
 
 struct HandleFactory {
   HandleFactory(void);
-  Handle Build(void);
+  Handle Build(void) const;
  private:
-  uint64_t index_;
+  mutable uint64_t index_;
 };
 }  // namespace event_
 

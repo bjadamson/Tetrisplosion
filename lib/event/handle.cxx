@@ -14,7 +14,7 @@ Handle::Handle(uint64_t const id) : id_(id) {
 HandleFactory::HandleFactory(void) : index_(0U) {
 }
 
-Handle HandleFactory::Build(void) {
+Handle HandleFactory::Build(void) const {
   return Handle(index_++);
 }
 }  // namespace event

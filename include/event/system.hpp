@@ -10,17 +10,17 @@ class Window;
 
 namespace event {
 struct System {
-  virtual void add_filter(Filter &&f) = 0;
+  virtual void add_filter(EventFilter f) = 0;
   virtual void enumerate(void) const = 0;
 };
 
 struct SfmlSystem : public System {
   SfmlSystem(sf::Window &window);
-  virtual void add_filter(Filter &&f) override;
+  virtual void add_filter(EventFilter f) override;
   virtual void enumerate(void) const override;
  private:
   sf::Window &window_;
-  std::vector<Filter> filters_;
+  std::vector<EventFilter> filters_;
 };
 
 }  // namespace event

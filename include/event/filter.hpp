@@ -11,14 +11,16 @@ struct Filter {
   virtual bool send_events(std::vector<Event> const events) const = 0;
 };
 
-template<typename EventType>
 struct EventFilter : public Filter {
-  EventFilter(HandleFactory const& hf);
+  EventFilter(HandleFactory const& hf, sf::Event::EventType const type);
+  EventFilter(HandleFactory const& hf,
+      std::vector<sf::Event::EventType> types);
   Handle register_filter(void);
   void unregister(Handle const handle);
-  bool send_events(std::vector<Event> const events) const;
+  bool send_events(std::vector<Event> const events) const override;
  private:
   HandleFactory const& handle_factory_;
+  std::vector<sf::Event::EventType> const types_;
   std::vector<Handle> handles_;
 };
 
