@@ -4,9 +4,22 @@
 using event::System;
 
 namespace tet {
-Tetrisplosion::Tetrisplosion(WindowConfig const& wc, MenuConfig const& mc)
-  : mc_(mc), window_(sf::VideoMode(wc.width.get(), wc.height.get()), wc.title.get()),
-    event_system_(window_) {
+//===----------------------------------------------------------------------===//
+// TetrisplosionConfig
+//===----------------------------------------------------------------------===//
+TetrisplosionConfig::TetrisplosionConfig(WindowConfig const& wc,
+    MenuConfig const& mc) : window_config(wc), menu_config(mc) {
+}
+//===----------------------------------------------------------------------===//
+// Tetrisplosion
+//===----------------------------------------------------------------------===//
+Tetrisplosion::Tetrisplosion(TetrisplosionConfig const& tc,
+  event::Config const& ec) : tc_(tc),
+    //window_(sf::VideoMode(tc.window_config.width.get(),
+    //tc.window_config.height.get()), tc.window_config.title.get()),
+    window_(ec.window),
+    event_system_(ec) {
+  //EventFilter filt(sf::Keyboard, 
 }
 
 int Tetrisplosion::run(void) {

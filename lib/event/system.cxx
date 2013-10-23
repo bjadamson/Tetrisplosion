@@ -6,13 +6,20 @@
 
 using Event = sf::Event::EventType;
 using std::move;
+using std::vector;
 
 namespace event {
-SfmlSystem::SfmlSystem(sf::Window &window) : window_(window) {
+//===----------------------------------------------------------------------===//
+// Config
+//===----------------------------------------------------------------------===//
+Config::Config(sf::RenderWindow &window, vector<EventFilter> filters)
+    : window(window), filters(filters) {
 }
-
-void SfmlSystem::add_filter(EventFilter f) {
-  filters_.push_back(move(f));
+//===----------------------------------------------------------------------===//
+// SfmlSystem
+//===----------------------------------------------------------------------===//
+SfmlSystem::SfmlSystem(Config const& config)
+    : window_(config.window), filters_(move(config.filters)) {
 }
 
 void SfmlSystem::enumerate(void) const {

@@ -4,16 +4,25 @@
 #include <SFML/Graphics.hpp>
 #include <event/system.hpp>
 
+namespace event {
+  struct Config;
+}  // namespace event
 namespace tet {
 struct WindowConfig;
 struct MenuConfig;
+struct TetrisplosionConfig {
+  TetrisplosionConfig(WindowConfig const& wc, MenuConfig const& mc);
+  WindowConfig const& window_config;
+  MenuConfig const& menu_config;
+};
 struct Tetrisplosion {
-  Tetrisplosion(WindowConfig const& wc, MenuConfig const& mc);
+  Tetrisplosion(TetrisplosionConfig const& tc, event::Config const& ec);
   int run(void);
+
  private:
   //WindowConfig const& wc_;
-  MenuConfig const& mc_;
-  sf::RenderWindow window_;
+  TetrisplosionConfig const& tc_;
+  sf::RenderWindow &window_;
   event::SfmlSystem event_system_;
 };
 

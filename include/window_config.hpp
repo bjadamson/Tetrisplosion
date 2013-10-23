@@ -1,6 +1,7 @@
 #ifndef WINDOW_CONFIG_HPP_
 #define WINDOW_CONFIG_HPP_
 #include <string>
+#include <SFML/Graphics.hpp>
 
 namespace tet {
 struct WindowWidth {
@@ -27,6 +28,10 @@ struct WindowConfig {
   WindowWidth const width;
   WindowHeight const height;
   WindowTitle const title;
+};
+struct Window {
+  Window(WindowConfig const& wc);
+  sf::RenderWindow window;
 };
 
 }  // namespace tet

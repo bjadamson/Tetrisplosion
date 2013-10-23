@@ -5,22 +5,26 @@
 #include <vector>
 
 namespace sf {
-class Window;
+class RenderWindow;
 }  // namespace sf
-
 namespace event {
+struct Config {
+  Config(sf::RenderWindow &window, std::vector<EventFilter> filters);
+
+  sf::RenderWindow &window;
+  std::vector<EventFilter> const filters;
+};
 struct System {
-  virtual void add_filter(EventFilter f) = 0;
   virtual void enumerate(void) const = 0;
 };
 
 struct SfmlSystem : public System {
-  SfmlSystem(sf::Window &window);
-  virtual void add_filter(EventFilter f) override;
+  SfmlSystem(Config const& config);
   virtual void enumerate(void) const override;
  private:
-  sf::Window &window_;
-  std::vector<EventFilter> filters_;
+  
+  sf::RenderWindow &window_;
+  std::vector<EventFilter> const filters_;
 };
 
 }  // namespace event
